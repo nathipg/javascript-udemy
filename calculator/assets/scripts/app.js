@@ -1,10 +1,14 @@
 const defaultResult = 0;
 let currentResult = defaultResult;
-let calculationDescription = defaultResult;
+
+function getUserNumberInput() {
+  return +userInput.value;
+}
 
 function add() {
-  currentResult = currentResult + +userInput.value;
-  calculationDescription += ' + ' + +userInput.value;
+  const enteredNumber = getUserNumberInput();
+  const calculationDescription = `${currentResult} + ${enteredNumber}`;
+  currentResult = currentResult + enteredNumber;
   outputResult(currentResult, calculationDescription);
 }
 
