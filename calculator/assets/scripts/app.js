@@ -16,7 +16,13 @@ function add() {
   const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
   currentResult += enteredNumber;
-  logEntries.push(enteredNumber);
+  const logEntry = {
+    operation: 'ADD',
+    prevResult: initialResult,
+    number: enteredNumber,
+    result: currentResult
+  };
+  logEntries.push(logEntry);
   createAndWriteOutput('+', initialResult, enteredNumber);
 }
 
