@@ -153,8 +153,13 @@ function printLogHandler() {
     console.log('--------------');
   }
 
+  let i = 1; 
   for(const logEntry of battleLog) {
-    console.log(logEntry);
+    console.log(`#${i}`);
+    for(key in logEntry) {
+      console.log(`${key}: ${logEntry[key]}`);
+    }
+    i++;
   }
 }
 
