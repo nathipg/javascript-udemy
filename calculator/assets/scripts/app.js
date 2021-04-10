@@ -33,6 +33,10 @@ function calculateResult(calculationType) {
   const initialResult = currentResult;
   let mathOperator;
 
+  if(!enteredNumber) {
+    throw Error('Zero is not allowed');
+  }
+
   if(calculationType === 'ADD') {
     currentResult += enteredNumber;
     mathOperator = '+';
