@@ -28,36 +28,45 @@ function writeToLog(
   console.log(logEntries);
 }
 
-function add() {
+function calculateResult(calculationType) {
   const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
-  currentResult += enteredNumber;
-  writeToLog('ADD', initialResult, enteredNumber, currentResult);
-  createAndWriteOutput('+', initialResult, enteredNumber);
+  let mathOperator;
+
+  if(calculationType === 'ADD') {
+    currentResult += enteredNumber;
+    mathOperator = '+';
+  } else if(calculationType === 'SUBSTRACT') {
+    currentResult -= enteredNumber;
+    mathOperator = '-';
+  } else if(calculationType === 'MULTIPLY') {
+    currentResult *= enteredNumber;
+    mathOperator = '*';
+  } else if(calculationType === 'DIVIDE') {
+    currentResult /= enteredNumber;
+    mathOperator = '/';
+  } else {
+    throw Error('Invalid operation')
+  }
+
+  writeToLog(calculationType, initialResult, enteredNumber, currentResult);
+  createAndWriteOutput(mathOperator, initialResult, enteredNumber);
+}
+
+function add() {
+  calculateResult('ADD');
 }
 
 function substract() {
-  const enteredNumber = getUserNumberInput();
-  const initialResult = currentResult;
-  currentResult -= enteredNumber;
-  writeToLog('SUBSTRACT', initialResult, enteredNumber, currentResult);
-  createAndWriteOutput('-', initialResult, enteredNumber);
+  calculateResult('SUBSTRACT');
 }
 
 function multiply() {
-  const enteredNumber = getUserNumberInput();
-  const initialResult = currentResult;
-  currentResult *= enteredNumber;
-  writeToLog('MULTIPLY', initialResult, enteredNumber, currentResult);
-  createAndWriteOutput('*', initialResult, enteredNumber);
+  calculateResult('MULTIPLY');
 }
 
 function divide() {
-  const enteredNumber = getUserNumberInput();
-  const initialResult = currentResult;
-  currentResult /= enteredNumber;
-  writeToLog('DIVIDE', initialResult, enteredNumber, currentResult);
-  createAndWriteOutput('/', initialResult, enteredNumber);
+  calculateResult('DIVIDE');
 }
 
 addBtn.addEventListener('click', add);
