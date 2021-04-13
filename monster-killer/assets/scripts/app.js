@@ -12,6 +12,7 @@ const LOG_EVENT_GAME_OVER = 'GAME_OVER';
 
 const battleLog = [];
 const enteredValue = prompt('Maximum life', '100');
+let lastLoggedEntry;
 
 let chosenMaxLife = +enteredValue;
 
@@ -155,9 +156,13 @@ function printLogHandler() {
 
   let i = 1; 
   for(const logEntry of battleLog) {
-    console.log(`#${i}`);
-    for(key in logEntry) {
-      console.log(`${key}: ${logEntry[key]}`);
+    if(!lastLoggedEntry && lastLoggedEntry !== 0 || lastLoggedEntry < i) {
+      console.log(`#${i}`);
+      for(key in logEntry) {
+        console.log(`${key}: ${logEntry[key]}`);
+      }
+      lastLoggedEntry = i;
+      break;
     }
     i++;
   }
