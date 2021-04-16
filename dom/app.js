@@ -32,7 +32,7 @@ anotherLi.textContent = 'Another li'
 
 // list.prepend(anotherLi);
 
-list.lastElementChild.before(anotherLi);
-list.lastElementChild.after(anotherLi);
-list.lastElementChild.replaceWith(anotherLi);
-list.lastElementChild.insertAdjacentElement(anotherLi);
+list.lastElementChild.before(anotherLi.cloneNode(true));
+list.lastElementChild.after(anotherLi.cloneNode(true));
+list.lastElementChild.insertAdjacentElement(anotherLi.cloneNode(true));
+list.lastElementChild.replaceWith(anotherLi.cloneNode(true));
