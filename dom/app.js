@@ -28,3 +28,10 @@ document.documentElement.parentElement // null
 document.documentElement.parentNode // document
 
 const bodyElement = firstLi.closest('body');
+
+const ulElement = lastLi.parentElement;
+
+const header = ul.previousElementSibling;
+// ul.previousSibling
+const input = ul.nextElementSibling;
+// ul.nextElementSibling
