@@ -34,5 +34,9 @@ anotherLi.textContent = 'Another li'
 
 list.lastElementChild.before(anotherLi.cloneNode(true));
 list.lastElementChild.after(anotherLi.cloneNode(true));
-list.lastElementChild.insertAdjacentElement(anotherLi.cloneNode(true));
+list.lastElementChild.insertAdjacentElement('beforeend', anotherLi.cloneNode(true));
 list.lastElementChild.replaceWith(anotherLi.cloneNode(true));
+
+
+// list.remove();
+// list.parentElement.removeChild(list); -> IE
