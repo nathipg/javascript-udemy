@@ -15,3 +15,11 @@ const listItemElements = document.querySelectorAll('li');
 for(const li of listItemElements) {
   console.dir(li);
 }
+
+const ul = document.querySelector('ul');
+const secondLi = ul.children[1];
+const firstLi = ul.firstElementChild;
+const lastLi = ul.lastElementChild;
+// ul.childNodes
+// ul.firstChild
+// ul.lastChild
