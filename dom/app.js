@@ -14,3 +14,10 @@ button.addEventListener('click', () => {
   // section.classList.toggle('visible');
   section.classList.toggle('invisible');
 });
+
+// section.innerHTML = '<h2>Test</h2>';
+
+const list = document.querySelector('ul');
+const div = document.querySelector('div');
+
+div.insertAdjacentHTML('beforeend', '<p>Some text</p>');
