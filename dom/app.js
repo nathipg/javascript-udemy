@@ -23,3 +23,8 @@ const lastLi = ul.lastElementChild;
 // ul.childNodes
 // ul.firstChild
 // ul.lastChild
+
+document.documentElement.parentElement // null
+document.documentElement.parentNode // document
+
+const bodyElement = firstLi.closest('body');
