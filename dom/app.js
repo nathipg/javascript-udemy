@@ -17,7 +17,10 @@ button.addEventListener('click', () => {
 
 // section.innerHTML = '<h2>Test</h2>';
 
-const list = document.querySelector('ul');
 const div = document.querySelector('div');
-
 div.insertAdjacentHTML('beforeend', '<p>Some text</p>');
+
+const list = document.querySelector('ul');
+const newLi = document.createElement('li');
+newLi.textContent = 'Item 4';
+list.appendChild(newLi);
