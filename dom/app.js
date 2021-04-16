@@ -24,3 +24,15 @@ const list = document.querySelector('ul');
 const newLi = document.createElement('li');
 newLi.textContent = 'Item 4';
 list.appendChild(newLi);
+
+list.append('Some text');
+
+const anotherLi = document.createElement('li');
+anotherLi.textContent = 'Another li'
+
+// list.prepend(anotherLi);
+
+list.lastElementChild.before(anotherLi);
+list.lastElementChild.after(anotherLi);
+list.lastElementChild.replaceWith(anotherLi);
+list.lastElementChild.insertAdjacentElement(anotherLi);
