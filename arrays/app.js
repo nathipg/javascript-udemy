@@ -72,7 +72,7 @@ console.log([...someTestResults]);
 const someMoreTestResults = testResults.slice(3);
 console.log([...someMoreTestResults]); */
 
-const testResults = [1, 5.3, 1.5, 10.99, 1.5, -5, 10];
+/* const testResults = [1, 5.3, 1.5, 10.99, 1.5, -5, 10];
 const storedResults = testResults.concat([3.99, 2]);
 
 testResults.push(5.91);
@@ -100,4 +100,16 @@ const apolloIndex = personData.findIndex(
   (person, index, persons) => person.name === 'Apollo'
 );
 
-console.log(apolloIndex);
+console.log(apolloIndex); */
+
+const prices = [10.99, 5.99, 3.99, 6.59];
+const tax = 0.19;
+const taxAdjustedPrices = [];
+
+// for(const price of prices) {
+//   taxAdjustedPrices.push(price * (1 + tax));
+// }
+
+prices.forEach((price, index, prices) => {
+  taxAdjustedPrices.push(price * (1 + tax));
+});
