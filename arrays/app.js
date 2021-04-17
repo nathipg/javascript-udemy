@@ -46,5 +46,14 @@ console.log(shiftedValue);
 hobbies[1] = 'Sports Edited';
 console.log([...hobbies]);
 
-hobbies[5] = 'Another hobbie'; // Rarely used
+/* hobbies[5] = 'Another hobbie'; // Rarely used
+console.log([...hobbies]); */
+
+hobbies.splice(1, 0, 'Good Food', 'Nice Food'); // Add element in certain position
+console.log([...hobbies]);
+
+const removedElements = hobbies.splice(2, 1); // Remove elements in certain positions
+console.log([...hobbies]);
+
+const removedElements2 = hobbies.splice(-1, 1); // Remove last element in array
 console.log([...hobbies]);
