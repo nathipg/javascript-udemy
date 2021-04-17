@@ -169,6 +169,6 @@ persons[0].name += ' (Edited)';
 console.log(persons, copiedPersons, deepCopiedPersons);
  */
 
-const nameData = ['Nathália', 'Pissuti', 'Ms', 23];
+/* const nameData = ['Nathália', 'Pissuti', 'Ms', 23];
 const [firstName, lastName, ...otherInformation] = nameData;
-console.log(firstName, lastName, otherInformation);
+console.log(firstName, lastName, otherInformation); */
