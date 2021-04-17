@@ -58,7 +58,7 @@ console.log([...hobbies]);
 const removedElements2 = hobbies.splice(-1, 1); // Remove last element in array
 console.log([...hobbies]); */
 
-const testResults = [1, 5.3, 1.5, 10.99, -5, 10];
+/* const testResults = [1, 5.3, 1.5, 10.99, -5, 10];
 const storedResults = testResults.slice();
 
 testResults.push(99);
@@ -70,4 +70,12 @@ const someTestResults = testResults.slice(1, 3);
 console.log([...someTestResults]);
 
 const someMoreTestResults = testResults.slice(3);
-console.log([...someMoreTestResults]);
+console.log([...someMoreTestResults]); */
+
+const testResults = [1, 5.3, 1.5, 10.99, -5, 10];
+const storedResults = testResults.concat([3.99, 2]);
+
+testResults.push(5.91);
+
+console.log([...testResults]);
+console.log([...storedResults]);
