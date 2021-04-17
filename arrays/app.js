@@ -114,16 +114,14 @@ const tax = 0.19;
 //   taxAdjustedPrices.push(price * (1 + tax));
 // });
 
-const taxAdjustedPrices = prices.map(
-  (price, index, prices) => price * (1 + tax)
-);
+const taxAdjustedPrices = prices.map(price => price * (1 + tax));
 
 console.log([...taxAdjustedPrices]);
 
 const sortedPrices = prices.sort((a, b) => {
-  if(a > b) {
-    return 1
-  } else if(a === b) {
+  if (a > b) {
+    return 1;
+  } else if (a === b) {
     return 0;
   } else {
     return -1;
@@ -133,6 +131,6 @@ console.log([...prices]);
 console.log([...sortedPrices]);
 console.log([...sortedPrices.reverse()]);
 
-const filteredPrices = prices.filter((price, index, prices) => price > 6);
+const filteredPrices = prices.filter(price => price > 6);
 
 console.log([...filteredPrices]);
