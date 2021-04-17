@@ -137,3 +137,11 @@ console.log([...filteredPrices]);
 
 const sumPrices = prices.reduce((prevValue, curValue) => prevValue + curValue, 0);
 console.log(sumPrices);
+
+const data = 'New York;10.99;2000';
+const transformedData = data.split(';');
+console.log(transformedData);
+
+const nameFragments = ['Nathália', 'Pissuti'];
+const name = nameFragments.join(' ');
+console.log(name);
