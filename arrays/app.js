@@ -135,7 +135,10 @@ const filteredPrices = prices.filter(price => price > 6);
 
 console.log([...filteredPrices]);
 
-const sumPrices = prices.reduce((prevValue, curValue) => prevValue + curValue, 0);
+const sumPrices = prices.reduce(
+  (prevValue, curValue) => prevValue + curValue,
+  0
+);
 console.log(sumPrices);
 
 const data = 'New York;10.99;2000';
@@ -145,3 +148,22 @@ console.log(transformedData);
 const nameFragments = ['Nathália', 'Pissuti'];
 const name = nameFragments.join(' ');
 console.log(name);
+
+const copiedNameFragments = [...nameFragments];
+console.log([...copiedNameFragments]);
+
+nameFragments.push('É isso');
+
+console.log([...nameFragments], [...copiedNameFragments]);
+
+const minPrice = Math.min(...prices);
+console.log(minPrice);
+
+const persons = [{ name: 'Pissuti' }, { name: 'Apollo' }];
+const copiedPersons = [...persons];
+const deepCopiedPersons = [...persons.map(person => ({ ...person }))];
+
+persons.push({ name: 'Joana' });
+persons[0].name += ' (Edited)';
+
+console.log(persons, copiedPersons, deepCopiedPersons);
