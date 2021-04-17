@@ -134,3 +134,6 @@ console.log([...sortedPrices.reverse()]);
 const filteredPrices = prices.filter(price => price > 6);
 
 console.log([...filteredPrices]);
+
+const sumPrices = prices.reduce((prevValue, curValue) => prevValue + curValue, 0);
+console.log(sumPrices);
