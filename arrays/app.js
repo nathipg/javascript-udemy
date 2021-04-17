@@ -104,12 +104,18 @@ console.log(apolloIndex); */
 
 const prices = [10.99, 5.99, 3.99, 6.59];
 const tax = 0.19;
-const taxAdjustedPrices = [];
 
+// const taxAdjustedPrices = [];
 // for(const price of prices) {
 //   taxAdjustedPrices.push(price * (1 + tax));
 // }
 
-prices.forEach((price, index, prices) => {
-  taxAdjustedPrices.push(price * (1 + tax));
-});
+// prices.forEach((price, index, prices) => {
+//   taxAdjustedPrices.push(price * (1 + tax));
+// });
+
+const taxAdjustedPrices = prices.map(
+  (price, index, prices) => price * (1 + tax)
+);
+
+console.log([...taxAdjustedPrices]);
