@@ -9,7 +9,7 @@ console.log(moreNumbers2);
 const yetMoreNumbers = Array.of(1, 2);
 console.log(yetMoreNumbers); */
 
-const listItems = document.querySelectorAll('li');
+/* const listItems = document.querySelectorAll('li');
 console.log(listItems);
 
 const arrayListItems = Array.from(listItems);
@@ -28,4 +28,23 @@ for(const data of analyticsData) {
   }
 }
 
-console.log(personalData[1]);
+console.log(personalData[1]); */
+
+const hobbies = ['Cooking', 'Sports'];
+hobbies.push('Reading');
+hobbies.unshift('Coding');
+console.log([...hobbies]);
+
+const poppedValue = hobbies.pop();
+console.log([...hobbies]);
+console.log(poppedValue);
+
+const shiftedValue = hobbies.shift();
+console.log([...hobbies]);
+console.log(shiftedValue);
+
+hobbies[1] = 'Sports Edited';
+console.log([...hobbies]);
+
+hobbies[5] = 'Another hobbie'; // Rarely used
+console.log([...hobbies]);
