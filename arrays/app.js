@@ -80,6 +80,8 @@ testResults.push(5.91);
 console.log([...testResults]);
 console.log([...storedResults]);
 
+console.log(testResults.includes(10.99));
+
 console.log(testResults.indexOf(1.5));
 console.log(testResults.lastIndexOf(1.5));
 
