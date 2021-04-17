@@ -1,5 +1,5 @@
-const numbers = [1, 2, 3];
-console.log(numbers);
+/* const numbers = [1, 2, 3];
+console.log(numbers); */
 
 /* const moreNumbers = new Array(1, 2, 3); // Also works without new keyword
 const moreNumbers2 = new Array(5); // Create empty array with length 5
@@ -30,7 +30,7 @@ for(const data of analyticsData) {
 
 console.log(personalData[1]); */
 
-const hobbies = ['Cooking', 'Sports'];
+/* const hobbies = ['Cooking', 'Sports'];
 hobbies.push('Reading');
 hobbies.unshift('Coding');
 console.log([...hobbies]);
@@ -46,8 +46,8 @@ console.log(shiftedValue);
 hobbies[1] = 'Sports Edited';
 console.log([...hobbies]);
 
-/* hobbies[5] = 'Another hobbie'; // Rarely used
-console.log([...hobbies]); */
+// hobbies[5] = 'Another hobbie'; // Rarely used
+// console.log([...hobbies]);
 
 hobbies.splice(1, 0, 'Good Food', 'Nice Food'); // Add element in certain position
 console.log([...hobbies]);
@@ -56,4 +56,18 @@ const removedElements = hobbies.splice(2, 1); // Remove elements in certain posi
 console.log([...hobbies]);
 
 const removedElements2 = hobbies.splice(-1, 1); // Remove last element in array
-console.log([...hobbies]);
+console.log([...hobbies]); */
+
+const testResults = [1, 5.3, 1.5, 10.99, -5, 10];
+const storedResults = testResults.slice();
+
+testResults.push(99);
+
+console.log([...testResults]);
+console.log([...storedResults]);
+
+const someTestResults = testResults.slice(1, 3);
+console.log([...someTestResults]);
+
+const someMoreTestResults = testResults.slice(3);
+console.log([...someMoreTestResults]);
