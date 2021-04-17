@@ -114,7 +114,7 @@ const tax = 0.19;
 //   taxAdjustedPrices.push(price * (1 + tax));
 // });
 
-const taxAdjustedPrices = prices.map(price => price * (1 + tax));
+/* const taxAdjustedPrices = prices.map(price => price * (1 + tax));
 
 console.log([...taxAdjustedPrices]);
 
@@ -167,3 +167,8 @@ persons.push({ name: 'Joana' });
 persons[0].name += ' (Edited)';
 
 console.log(persons, copiedPersons, deepCopiedPersons);
+ */
+
+const nameData = ['Nathália', 'Pissuti', 'Ms', 23];
+const [firstName, lastName, ...otherInformation] = nameData;
+console.log(firstName, lastName, otherInformation);
