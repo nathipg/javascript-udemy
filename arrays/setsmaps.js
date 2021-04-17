@@ -9,7 +9,7 @@ for (const entry of ids.entries()) {
 }
  */
 
-const person1 = { name: 'Pissuti' };
+/* const person1 = { name: 'Pissuti' };
 const person2 = { name: 'Apollo' };
 
 const personData = new Map([[person1, [{ date: 'yesterday', price: 10 }]]]);
@@ -30,3 +30,9 @@ for (const key of personData.keys()) {
 for (const value of personData.values()) {
   console.log(value);
 }
+ */
+
+let person = {name: 'Max'};
+const persons = new WeakSet();
+persons.add(person);
+console.log(persons);
