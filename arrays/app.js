@@ -82,3 +82,20 @@ console.log([...storedResults]);
 
 console.log(testResults.indexOf(1.5));
 console.log(testResults.lastIndexOf(1.5));
+
+const personData = [{ name: 'Pissuti' }, { name: 'Apollo' }];
+
+const pissuti = personData.find(
+  (person, index, persons) => person.name === 'Pissuti'
+);
+console.log({ ...pissuti });
+
+pissuti.name += ' (Edited)';
+
+console.log({ ...pissuti }, { ...personData });
+
+const apolloIndex = personData.findIndex(
+  (person, index, persons) => person.name === 'Apollo'
+);
+
+console.log(apolloIndex);
