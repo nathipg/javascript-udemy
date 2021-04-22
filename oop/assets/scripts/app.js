@@ -3,32 +3,36 @@ class Product {
   imageUrl;
   price;
   description;
+
+  constructor(title, imageUrl, price, description) {
+    this.title = title;
+    this.imageUrl = imageUrl;
+    this.price = price;
+    this.description = description;
+  }
 }
 
 const productList = {
   products: [
-    //new Product(),
-    {
-      title: 'Pillow',
-      imageUrl:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHhgIBKlKWuX7DFR1yx_AgrJ086r9Ys2nLD9Jj41TJ_iAoEFWIwEZEqWxBEm3JJwEGfm8OauZH&usqp=CAc',
-      price: 19.99,
-      description: 'A pillow',
-    },
-    {
-      title: 'Carpet',
-      imageUrl:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN13Ky2XPf3AWcfzaqsV-zzcOduqEALsOFYj12QlvbfCZy0BgzilYCW5d5lDcgBC-RmSvmHNAT&usqp=CAc',
-      price: 19.99,
-      description: 'A carpet',
-    },
+    new Product(
+      'Pillow',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHhgIBKlKWuX7DFR1yx_AgrJ086r9Ys2nLD9Jj41TJ_iAoEFWIwEZEqWxBEm3JJwEGfm8OauZH&usqp=CAc',
+      19.99,
+      'A pillow'
+    ),
+    new Product(
+      'Carpet',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN13Ky2XPf3AWcfzaqsV-zzcOduqEALsOFYj12QlvbfCZy0BgzilYCW5d5lDcgBC-RmSvmHNAT&usqp=CAc',
+      19.99,
+      'A carpet'
+    ),
   ],
   render() {
     const renderHook = document.getElementById('app');
     const prodList = document.createElement('ul');
     prodList.className = 'product-list';
 
-    for(const prod of this.products) {
+    for (const prod of this.products) {
       const prodEl = document.createElement('li');
       prodEl.className = 'product-item';
       prodEl.innerHTML = `
@@ -46,7 +50,7 @@ const productList = {
     }
 
     renderHook.append(prodList);
-  }
+  },
 };
 
 productList.render();
