@@ -18,13 +18,16 @@ const renderMovies = (filter = '') => {
     ? movies
     : movies.filter(movie => movie.info.title.includes(filter));
 
-  filteredMovies.forEach(movie => {
-    const movieEl = document.createElement('li');
-    let text = movie.info.title + ' - ';
+  filteredMovies.forEach(({ info, ...otherProps }) => {
+    console.log(otherProps);
 
-    for (key in movie.info) {
+    const movieEl = document.createElement('li');
+    const { title: movieTitle } = info;
+    let text = movieTitle + ' - ';
+
+    for (key in info) {
       if (key !== 'title') {
-        text += `${key}: ${movie.info[key]}`;
+        text += `${key}: ${info[key]}`;
       }
     }
 
