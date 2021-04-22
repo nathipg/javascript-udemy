@@ -10,7 +10,8 @@ const person = {
   hobbies: ['Sports', 'Cooking'],
   greet: function() {
     console.log('Hi there!');
-  }
+  },
+  1.5: 'Hello'
 };
 
 person.greet();
@@ -27,3 +28,6 @@ delete person.age; // Remove
 console.log({...person});
 
 console.log(person['first name']);
+
+console.log(person[1.5]);
+console.log(person['1.5']);
