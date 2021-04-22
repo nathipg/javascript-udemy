@@ -20,6 +20,9 @@ const renderMovies = (filter = '') => {
 
   filteredMovies.forEach(({ info, ...otherProps }) => {
     console.log(otherProps);
+    if('title' in info) {
+      console.log('Has title');
+    }
 
     const movieEl = document.createElement('li');
     const { title: movieTitle } = info;
