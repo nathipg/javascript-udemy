@@ -121,15 +121,16 @@ class ProductItem extends Component {
 }
 
 class ProductList extends Component {
-  products = [];
+  #products = [];
 
   constructor(renderHookId) {
-    super(renderHookId);
-    this.fetchProducts();
+    super(renderHookId, false);
+    this.render();
+    this.#fetchProducts();
   }
 
-  fetchProducts() {
-    this.products = [
+  #fetchProducts() {
+    this.#products = [
       new Product(
         'Pillow',
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHhgIBKlKWuX7DFR1yx_AgrJ086r9Ys2nLD9Jj41TJ_iAoEFWIwEZEqWxBEm3JJwEGfm8OauZH&usqp=CAc',
@@ -147,7 +148,7 @@ class ProductList extends Component {
   }
 
   renderProducts() {
-    for (const product of this.products) {
+    for (const product of this.#products) {
       new ProductItem(product, 'prod-list');
     }
   }
@@ -157,7 +158,7 @@ class ProductList extends Component {
       new ElementAttribute('id', 'prod-list'),
     ]);
 
-    if (this.products && this.products.length > 0) {
+    if (this.#products && this.#products.length > 0) {
       this.renderProducts();
     }
   }
