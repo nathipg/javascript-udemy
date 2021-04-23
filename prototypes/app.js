@@ -18,5 +18,12 @@ function Person() {
   };
 }
 
+Person.prototype = {
+  printAge() {
+    console.log(this.age);
+  }
+};
+
 const person = new Person();
 person.greet();
+person.printAge();
