@@ -20,9 +20,11 @@ class ElementAttribute {
 }
 
 class Component {
-  constructor(renderHookId) {
+  constructor(renderHookId, shouldRender = true) {
     this.hookId = renderHookId;
-    this.render();
+    if(shouldRender) {
+      this.render();
+    }
   }
 
   render() {}
@@ -83,8 +85,9 @@ class ShoppingCart extends Component {
 
 class ProductItem extends Component {
   constructor(product, renderHookId) {
-    super(renderHookId);
+    super(renderHookId, false);
     this.product = product;
+    this.render();
   }
 
   addToCart() {
@@ -111,32 +114,44 @@ class ProductItem extends Component {
 }
 
 class ProductList extends Component {
-  products = [
-    new Product(
-      'Pillow',
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHhgIBKlKWuX7DFR1yx_AgrJ086r9Ys2nLD9Jj41TJ_iAoEFWIwEZEqWxBEm3JJwEGfm8OauZH&usqp=CAc',
-      19.99,
-      'A pillow'
-    ),
-    new Product(
-      'Carpet',
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN13Ky2XPf3AWcfzaqsV-zzcOduqEALsOFYj12QlvbfCZy0BgzilYCW5d5lDcgBC-RmSvmHNAT&usqp=CAc',
-      19.99,
-      'A carpet'
-    ),
-  ];
+  products = [];
 
   constructor(renderHookId) {
     super(renderHookId);
+    this.fetchProducts();
+  }
+
+  fetchProducts() {
+    this.products = [
+      new Product(
+        'Pillow',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHhgIBKlKWuX7DFR1yx_AgrJ086r9Ys2nLD9Jj41TJ_iAoEFWIwEZEqWxBEm3JJwEGfm8OauZH&usqp=CAc',
+        19.99,
+        'A pillow'
+      ),
+      new Product(
+        'Carpet',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN13Ky2XPf3AWcfzaqsV-zzcOduqEALsOFYj12QlvbfCZy0BgzilYCW5d5lDcgBC-RmSvmHNAT&usqp=CAc',
+        19.99,
+        'A carpet'
+      ),
+    ];
+    this.renderProducts();
+  }
+
+  renderProducts() {
+    for (const product of this.products) {
+      new ProductItem(product, 'prod-list');
+    }
   }
 
   render() {
-    this.createRootElement('li', 'product-list', [
+    this.createRootElement('ul', 'product-list', [
       new ElementAttribute('id', 'prod-list'),
     ]);
 
-    for (const product of this.products) {
-      new ProductItem(product, 'prod-list');
+    if(this.products && this.products.length > 0) {
+      this.renderProducts();
     }
   }
 }
