@@ -12,18 +12,23 @@ class Person extends AgedPerson {
     this.age = 23;
   }
 
-  greet() {
+  // greet() {
+  //   console.log(`Name: ${this.name} Age: ${this.age}`);
+  // }
+
+  greet = () => {
     console.log(`Name: ${this.name} Age: ${this.age}`);
-  }
+  };
 }
 
 // function Person() {
 //   this.age = 23;
 //   this.name = 'Pissuti';
-//   this.greet = function () {
-//     console.log(`Name: ${this.name} Age: ${this.age}`);
-//   };
 // }
+
+// Person.prototype.greet = function() {
+//   console.log(`Name: ${this.name} Age: ${this.age}`);
+// };
 
 // Person.prototype = {
 //   printAge() {
@@ -50,5 +55,9 @@ class Person extends AgedPerson {
 // console.dir(Object.prototype);
 
 const p = new Person();
-console.log(Person);
+const p2 = new Person();
 console.log(p);
+console.log(p.__proto__ === p2.__proto__);
+
+const btn = document.getElementById('btn');
+btn.addEventListener('click', p.greet);
