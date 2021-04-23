@@ -31,12 +31,20 @@ function Person() {
 //   }
 // };
 
-Person.prototype.printAge = function () {
+Person.describe = function() { // Same as define static method
+  console.log('Creating persons...');
+}
+
+Person.prototype.printAge = function () { // Same as extends class with this method
   console.log(this.age);
 };
+
+console.log(Person);
+Person.describe();
 
 const person = new Person();
 person.greet();
 person.printAge();
 
 console.log(person);
+console.dir(Object.prototype);
