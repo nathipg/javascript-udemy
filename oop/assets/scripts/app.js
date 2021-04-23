@@ -22,7 +22,7 @@ class ElementAttribute {
 class Component {
   constructor(renderHookId, shouldRender = true) {
     this.hookId = renderHookId;
-    if(shouldRender) {
+    if (shouldRender) {
       this.render();
     }
   }
@@ -51,7 +51,11 @@ class ShoppingCart extends Component {
   items = [];
 
   constructor(renderHookId) {
-    super(renderHookId);
+    super(renderHookId, false);
+    this.orderProducts = () => {
+      console.log('Ordering...', this.items);
+    };
+    this.render();
   }
 
   set cartItems(value) {
@@ -79,6 +83,9 @@ class ShoppingCart extends Component {
       <h2>Total: \$${0}</h2>
       <button>Order Now!</button>
     `;
+    const orderButton = cartEl.querySelector('button');
+    // orderButton.addEventListener('click', () => this.orderProducts());
+    orderButton.addEventListener('click', this.orderProducts);
     this.totalOutput = cartEl.querySelector('h2');
   }
 }
@@ -150,7 +157,7 @@ class ProductList extends Component {
       new ElementAttribute('id', 'prod-list'),
     ]);
 
-    if(this.products && this.products.length > 0) {
+    if (this.products && this.products.length > 0) {
       this.renderProducts();
     }
   }
