@@ -173,6 +173,21 @@ class App {
     finishedProjectsList.setSwitchHandler(
       activeProjectsList.addProject.bind(activeProjectsList)
     );
+
+    const someScript = document.createElement('script');
+    someScript.textContent = `console.log('Hi, there');`;
+    document.head.append(someScript);
+
+    document
+      .getElementById('start-analytics-button')
+      .addEventListener('click', this.startAnalytics);
+  }
+
+  static startAnalytics() {
+    const analyticsScript = document.createElement('script');
+    analyticsScript.src = 'assets/scripts/analytics.js';
+    analyticsScript.defer = true;
+    document.head.append(analyticsScript);
   }
 }
 
