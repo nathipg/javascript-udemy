@@ -22,9 +22,12 @@ setTimeout(() => {
 
 const buttons = document.querySelectorAll('button');
 
-const buttonClickHandler = () => {
+const buttonClickHandler = event => {
   console.log(event);
-  event.target.disabled = true;
 };
 
-buttons.forEach(btn => btn.addEventListener('click', buttonClickHandler));
+buttons.forEach(btn => btn.addEventListener('mouseenter', buttonClickHandler));
+
+window.addEventListener('scroll', event => {
+  console.log(event);
+});
