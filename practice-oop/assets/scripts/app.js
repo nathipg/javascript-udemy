@@ -178,9 +178,13 @@ class App {
     someScript.textContent = `console.log('Hi, there');`;
     document.head.append(someScript);
 
+    const timerId = setTimeout(this.startAnalytics, 3000);
+
     document
       .getElementById('start-analytics-button')
-      .addEventListener('click', this.startAnalytics);
+      .addEventListener('click', () => {
+        clearTimeout(timerId);
+      });
   }
 
   static startAnalytics() {
