@@ -20,7 +20,7 @@ setTimeout(() => {
   button.removeEventListener('click', boundFn);
 }, 2000); */
 
-const buttons = document.querySelectorAll('button');
+/* const buttons = document.querySelectorAll('button');
 
 const buttonClickHandler = event => {
   console.log(event);
@@ -29,5 +29,12 @@ const buttonClickHandler = event => {
 buttons.forEach(btn => btn.addEventListener('mouseenter', buttonClickHandler));
 
 window.addEventListener('scroll', event => {
+  console.log(event);
+}); */
+
+const form = document.querySelector('form');
+
+form.addEventListener('submit', event => {
+  event.preventDefault();
   console.log(event);
 });
