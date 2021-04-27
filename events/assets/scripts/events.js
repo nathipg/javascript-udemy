@@ -42,14 +42,16 @@ form.addEventListener('submit', event => {
 const div = document.querySelector('div');
 const button = document.querySelector('button');
 
-div.addEventListener('click', event => {
+div.addEventListener('click', function(event) {
   console.log('DIV', event);
+  console.log(this); // "this" is the current target
 });
 
 button.addEventListener('click', event => {
   event.stopPropagation();
   //event.stopImmediatePropagation();
   console.log('BUTTON', event);
+  console.log(this); // "this" is the window, because this is a arrow function
 });
 
 /*
@@ -75,8 +77,9 @@ button.addEventListener('click', event => {
 // Better approach (With delegation)
 const list = document.querySelector('ul');
 
-list.addEventListener('click', event => {
+list.addEventListener('click', function(event) {
   event.target.closest('li').classList.toggle('highlight');
   // form.submit();
   button.click();
+  console.log(this); // "this" is the current target
 });
