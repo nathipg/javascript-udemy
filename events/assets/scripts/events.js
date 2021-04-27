@@ -38,3 +38,27 @@ form.addEventListener('submit', event => {
   event.preventDefault();
   console.log(event);
 });
+
+const div = document.querySelector('div');
+const button = document.querySelector('button');
+
+div.addEventListener('click', event => {
+  console.log('DIV', event);
+});
+
+button.addEventListener('click', event => {
+  event.stopPropagation();
+  //event.stopImmediatePropagation();
+  console.log('BUTTON', event);
+});
+
+/*
+  Event Progation:
+
+  - Capturing Phase: It runs from parents to chidren
+    Ex: A div with a button inside, both have a click event. If user clicks the button, div event runs first and then, the button event
+  - Bubbling Phase: It runs from children to parents
+    Ex: A div with a button inside, both have a click event. If user clicks the button, button event runs first and then, the div event
+
+  Bubbling is the default.
+*/
