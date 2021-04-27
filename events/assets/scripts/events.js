@@ -62,3 +62,19 @@ button.addEventListener('click', event => {
 
   Bubbling is the default.
 */
+
+// Bad approach
+// const listItems = document.querySelectorAll('li');
+
+// listItems.forEach(listItem => {
+//   listItem.addEventListener('click', event => {
+//     event.target.classList.toggle('highlight');
+//   });
+// });
+
+// Better approach (With delegation)
+const list = document.querySelector('ul');
+
+list.addEventListener('click', event => {
+  event.target.closest('li').classList.toggle('highlight');
+});
