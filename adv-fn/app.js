@@ -50,3 +50,19 @@ console.log(calculateVatAmount(100));
 console.log(calculateVatAmount(200));
 console.log(calculateIncomeTaxAmount(100));
 console.log(calculateIncomeTaxAmount(200));
+
+// Closures
+
+let userName = 'Pissuti';
+
+function greetUser() {
+  // let name = userName;
+  let name = 'Joana';
+  console.log('Hi ' + name);
+}
+
+let name = 'Cauê';
+
+userName = 'Apollo';
+
+greetUser();
