@@ -16,3 +16,10 @@ console.log(20.2.toFixed(20));
 
 console.log('BIG INT', 90071992547409919999999n);
 console.log('Convert to big int', BigInt(4));
+
+
+console.log('POSITIVE_INFINITY', Number.POSITIVE_INFINITY);
+console.log('Is 10 finite?', Number.isFinite(10));
+console.log('Is Infinity finite?', Number.isFinite(Infinity));
+
+console.log('RANDOM', Math.random());
