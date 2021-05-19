@@ -12,3 +12,7 @@ console.log(0.2.toFixed(20));
 console.log((0.2 + 0.4).toFixed(2));
 
 console.log(20.2.toFixed(20));
+
+
+console.log('BIG INT', 90071992547409919999999n);
+console.log('Convert to big int', BigInt(4));
