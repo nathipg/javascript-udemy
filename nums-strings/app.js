@@ -23,3 +23,10 @@ console.log('Is 10 finite?', Number.isFinite(10));
 console.log('Is Infinity finite?', Number.isFinite(Infinity));
 
 console.log('RANDOM', Math.random());
+
+
+function randomIntBetween(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+console.log(randomIntBetween(5, 10));
