@@ -1,3 +1,4 @@
+// ------ Numbers 
 console.log('MAX SAFE INTEGER', Number.MAX_SAFE_INTEGER); // Same as 2 ^ 53 - 1
 console.log('MIN SAFE INTEGER', Number.MIN_SAFE_INTEGER);
 console.log('MAX VALUE', Number.MAX_VALUE);
@@ -30,3 +31,29 @@ function randomIntBetween(min, max) {
 }
 
 console.log(randomIntBetween(5, 10));
+
+// ------ Strings
+
+const name = 'Pissuti';
+
+console.log(`My name is ${name}`);
+
+
+function productDescription(strings, productName, productPrice) {
+  console.log(strings);
+  console.log(productName);
+  console.log(productPrice);
+
+  let priceCategory = 'cheap';
+  if(productPrice > 20) {
+    priceCategory = 'fair';
+  }
+
+  return `${strings[0]}${productName}${strings[1]}${priceCategory}${strings[2]}`;
+}
+
+const prodName = 'Course';
+const prodPrice = 29.99;
+
+const productOutput = productDescription`This product (${prodName}) is ${prodPrice}.`;
+console.log(productOutput);
