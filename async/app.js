@@ -62,6 +62,13 @@ async function trackUserHandler() {
   }
 
   console.log(timerData, posData);
+  
+  setTimer(0)
+    .then(() => {
+      console.log('Timer done!');
+    });
+
+  console.log('Getting position...');
 }
 
 button.addEventListener('click', trackUserHandler);
