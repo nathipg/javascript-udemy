@@ -20,7 +20,7 @@ const getPosition = opts => {
 const setTimer = duration => {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve('Done!');
+      resolve(`Done! ${duration}`);
     }, duration);
   });
 
@@ -62,7 +62,7 @@ async function trackUserHandler() {
   }
 
   console.log(timerData, posData);
-  
+
   setTimer(0)
     .then(() => {
       console.log('Timer done!');
@@ -72,6 +72,27 @@ async function trackUserHandler() {
 }
 
 button.addEventListener('click', trackUserHandler);
+
+Promise.race([
+  setTimer(2000),
+  setTimer(1000)
+]).then(data => {
+  console.log(data);
+});
+
+Promise.all([
+  getPosition(),
+  setTimer(1000)
+]).then(promiseData => {
+  console.log(promiseData);
+});
+
+Promise.allSettled([
+  getPosition(),
+  setTimer(1000)
+]).then(promiseData => {
+  console.log(promiseData);
+});
 
 // let result = 0;
 
