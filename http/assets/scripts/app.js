@@ -5,7 +5,10 @@ const fetchButton = document.querySelector('#available-posts button');
 const postList = document.querySelector('ul');
 
 function sendHttpRequest(method, url, data) {
-  return fetch(url).then(response => {
+  return fetch(url, {
+    method: method,
+    body: JSON.stringify(data),
+  }).then(response => {
     return response.json();
   });
 }
