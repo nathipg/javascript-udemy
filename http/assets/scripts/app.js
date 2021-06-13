@@ -12,7 +12,17 @@ function sendHttpRequest(method, url, data) {
       'Content-Type': 'application/json'
     }
   }).then(response => {
-    return response.json();
+    if(response.status >= 200 && response.status < 300) {
+      return response.json();
+    } else {
+      return response.json().then(errorData => {
+        console.log(errorData);
+        throw new Error('Something went wrong')
+      });
+    }
+  }).catch(error => {
+    console.error(error);
+    throw new Error('Failed to send request');
   });
 }
 
