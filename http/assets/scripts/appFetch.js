@@ -4,10 +4,37 @@ const form = document.querySelector('#new-post form');
 const fetchButton = document.querySelector('#available-posts button');
 const postList = document.querySelector('ul');
 
+function sendHttpRequest(method, url, data) {
+  return fetch(url, {
+    method: method,
+    // body: JSON.stringify(data),
+    body: data,
+    // headers: {
+    //   'Content-Type': 'application/json'
+    // }
+  }).then(response => {
+    if(response.status >= 200 && response.status < 300) {
+      return response.json();
+    } else {
+      return response.json().then(errorData => {
+        console.log(errorData);
+        throw new Error('Something went wrong')
+      });
+    }
+  }).catch(error => {
+    console.error(error);
+    throw new Error('Failed to send request');
+  });
+}
+
 async function fetchPosts() {
   try {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
-    const listOfPosts = response.data;
+    const responseData = await sendHttpRequest(
+      'GET',
+      'https://jsonplaceholder.typicode.com/posts'
+    );
+  
+    const listOfPosts = responseData;
   
     for (const post of listOfPosts) {
       const postEl = document.importNode(postTemplate.content, true);
@@ -35,8 +62,7 @@ async function createPost(title, content) {
   fd.append('userId', userId);
   // fd.append('someFile', FILE_HERE, 'filename.png');
 
-  const response = await axios.post('https://jsonplaceholder.typicode.com/posts', fd);
-  console.log(response);
+  sendHttpRequest('POST', 'https://jsonplaceholder.typicode.com/posts', fd);
 }
 
 fetchButton.addEventListener('click', fetchPosts);
@@ -51,6 +77,6 @@ form.addEventListener('submit', event => {
 postList.addEventListener('click', event => {
   if(event.target.tagName === 'BUTTON') {
     const postId = event.target.closest('li').id;
-    axios.delete(`https://jsonplaceholder.typicode.com/posts/${postId}`);
+    sendHttpRequest('DELETE', `https://jsonplaceholder.typicode.com/posts/${postId}`);
   }
 });
