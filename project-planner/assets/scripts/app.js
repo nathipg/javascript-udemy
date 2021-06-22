@@ -1,5 +1,7 @@
 import ProjectList from "./App/ProjectList.js";
 
+globalThis.DEFAULT_VALUE = 'abc';
+
 class App {
   static init() {
     const activeProjectsList = new ProjectList('active');
