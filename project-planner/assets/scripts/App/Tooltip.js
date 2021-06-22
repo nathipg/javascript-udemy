@@ -1,3 +1,5 @@
+import Component from "./Component.js";
+
 class Tooltip extends Component {
   constructor(closeNotifierHandler, text, hostElementId) {
     super(hostElementId);
