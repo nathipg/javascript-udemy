@@ -1,12 +1,13 @@
-import ProjectItem from './ProjectItem.js';
-import DOMHelper, * as DOMH from '../Utility/DOMHelper.js';
+import ProjectItem from './ProjectItem';
+import * as DOMH from '../Utility/DOMHelper';
 
 export default class ProjectList {
-  projects = [];
+  // projects = [];
 
   constructor(type) {
     this.type = type;
     const prjItems = document.querySelectorAll(`#${type}-projects li`);
+    this.projects = [];
 
     for (const prjItem of prjItems) {
       this.projects.push(
