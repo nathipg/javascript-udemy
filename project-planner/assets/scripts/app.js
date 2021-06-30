@@ -1,4 +1,4 @@
-import ProjectList from "./App/ProjectList.js";
+import ProjectList from './App/ProjectList';
 
 globalThis.DEFAULT_VALUE = 'abc';
 
@@ -8,15 +8,15 @@ class App {
     const finishedProjectsList = new ProjectList('finished');
 
     activeProjectsList.setSwitchHandler(
-      finishedProjectsList.addProject.bind(finishedProjectsList)
+      finishedProjectsList.addProject.bind(finishedProjectsList),
     );
 
     finishedProjectsList.setSwitchHandler(
-      activeProjectsList.addProject.bind(activeProjectsList)
+      activeProjectsList.addProject.bind(activeProjectsList),
     );
 
     const someScript = document.createElement('script');
-    someScript.textContent = `console.log('Hi, there');`;
+    someScript.textContent = 'console.log(\'Hi, there\');';
     document.head.append(someScript);
 
     const timerId = setTimeout(this.startAnalytics, 3000);

@@ -10,7 +10,7 @@ export default class DOMHelper {
     const destinationElement = document.querySelector(newDestinationSelector);
     destinationElement.append(element);
     element.scrollIntoView({
-      behavior: 'smooth',
+      'behavior': 'smooth',
     });
   }
 }
@@ -26,6 +26,6 @@ export function moveElement(elementId, newDestinationSelector) {
   const destinationElement = document.querySelector(newDestinationSelector);
   destinationElement.append(element);
   element.scrollIntoView({
-    behavior: 'smooth',
+    'behavior': 'smooth',
   });
 }
