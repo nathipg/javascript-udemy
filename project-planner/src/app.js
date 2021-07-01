@@ -1,6 +1,9 @@
+import * as _ from 'lodash/array';
 import ProjectList from './App/ProjectList';
 
 globalThis.DEFAULT_VALUE = 'abc';
+
+console.log(_.difference([1, 2], [0, 2]));
 
 class App {
   static init() {
