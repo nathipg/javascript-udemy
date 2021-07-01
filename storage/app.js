@@ -1,21 +1,31 @@
 const storeBtn = document.getElementById('store-btn');
 const retrBtn = document.getElementById('retrieve-btn');
 
-storeBtn.addEventListener('click', () => {
-  const userId = 'u123';
-  const user = {
-    name: 'Apollo',
-    age: 10,
-    hobbies: ['Sports', 'Cooking']
+const dbRequest = indexedDB.open('StorageDummy', 1);
+
+dbRequest.onupgradeneeded = function(event) {
+  const db = event.target.result;
+  const objStore = db.createObjectStore('products', {keyPath: 'id'});
+
+  objStore.transaction.oncomplete = function(event) {
+    const productStore = db.transaction('products', 'readwrite').objectStore('products');
+    productStore.add({
+      id: 'p1',
+      title: 'First Prod',
+      price: 19.99,
+      tags: ['Nice', 'Cool']
+    });
   };
-  document.cookie = `uid=${userId}; max-age=360`;
-  document.cookie = `user=${JSON.stringify(user)}`;
+};
+
+dbRequest.onerror = function(event) {
+  console.error('ERROR!');
+};
+
+storeBtn.addEventListener('click', () => {
+
 });
 
 retrBtn.addEventListener('click', () => {
-  const cookieData = document.cookie.split(';');
-  const data = cookieData.map(i => {
-    return i.trim().split('=');
-  });
-  console.log(data);
+
 });
