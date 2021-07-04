@@ -7,7 +7,18 @@
     <title>Share a Place</title>
     <link rel="stylesheet" href="assets/styles/app.css" />
     <link rel="stylesheet" href="assets/styles/share-place.css" />
-    <script src="assets/scripts/SharePlace.js" defer></script>
+    <script src="secretKeys.js"></script>
+    <script>
+      function loadScript(src, apiKey = '') {
+        const gmScript = document.createElement('script');
+        gmScript.src = src + apiKey;
+        gmScript.defer = true;
+        document.head.append(gmScript);
+      }
+
+      loadScript('https://maps.googleapis.com/maps/api/js?key=', googleMapsApiKey);
+      loadScript('assets/scripts/SharePlace.js');
+    </script>
   </head>
   <body>
     <template id="modal-template">
