@@ -63,7 +63,7 @@ class PlaceFinder {
         };
         
         const address = await getAddressFromCoordinates(coordinates);
-        this.selectPlace(coordinates);
+        this.selectPlace(coordinates, address);
         modal.hide();
       },
       error => {

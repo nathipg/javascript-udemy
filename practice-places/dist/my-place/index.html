@@ -7,7 +7,18 @@
     <title>My Place</title>
     <link rel="stylesheet" href="../assets/styles/app.css" />
     <link rel="stylesheet" href="../assets/styles/my-place.css" />
-    <script src="../assets/scripts/MyPlace.js" defer></script>
+    <script src="../secretKeys.js"></script>
+    <script>
+      function loadScript(src, apiKey = '') {
+        const scriptTag = document.createElement('script');
+        scriptTag.src = src + apiKey;
+        scriptTag.defer = true;
+        document.head.append(scriptTag);
+      }
+
+      loadScript('https://maps.googleapis.com/maps/api/js?key=', GOOGLE_MAPS_API_KEY);
+      loadScript('../assets/scripts/MyPlace.js');
+    </script>
   </head>
   <body>
     <header>
