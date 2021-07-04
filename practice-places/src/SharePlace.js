@@ -15,7 +15,7 @@ class PlaceFinder {
 
   selectPlace(coordinates, address) {
     if (this.map) {
-      this.map.render(coordinatesc);
+      this.map.render(coordinates);
     } else {
       this.map = new Map(coordinates);
     }
