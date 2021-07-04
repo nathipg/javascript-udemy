@@ -10,10 +10,10 @@
     <script src="secretKeys.js"></script>
     <script>
       function loadScript(src, apiKey = '') {
-        const gmScript = document.createElement('script');
-        gmScript.src = src + apiKey;
-        gmScript.defer = true;
-        document.head.append(gmScript);
+        const scriptTag = document.createElement('script');
+        scriptTag.src = src + apiKey;
+        scriptTag.defer = true;
+        document.head.append(scriptTag);
       }
 
       loadScript('https://maps.googleapis.com/maps/api/js?key=', googleMapsApiKey);
