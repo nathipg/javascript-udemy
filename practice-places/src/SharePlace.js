@@ -7,10 +7,27 @@ class PlaceFinder {
     const addressForm = document.querySelector('form');
     const locateUserBtn = document.getElementById('locate-btn');
     this.shareBtn = document.getElementById('share-btn');
+    this.sharedLinkInputEl = document.getElementById('share-link');
 
     locateUserBtn.addEventListener('click', this.locateUserHandler.bind(this));
-    // this.shareBtn.addEventListener('click', );
+    this.shareBtn.addEventListener('click', this.sharePlaceHandler.bind(this));
     addressForm.addEventListener('submit', this.findAddressHandler.bind(this));
+  }
+
+  sharePlaceHandler() {
+    if(!navigator.clipboard) {
+      this.sharedLinkInputEl.select();
+      return;
+    }
+
+    navigator.clipboard.writeText(this.sharedLinkInputEl.value)
+    .then(() => {
+      alert('Copied!')
+    })
+    .catch(error => {
+      console.error(error);
+      this.sharedLinkInputEl.select();
+    });
   }
 
   selectPlace(coordinates, address) {
@@ -21,8 +38,7 @@ class PlaceFinder {
     }
 
     this.shareBtn.disabled = false;
-    const sharedLinkInputEl = document.getElementById('share-link');
-    sharedLinkInputEl.value = `${location.origin}/my-place?address=${encodeURI(address)}&lat=${coordinates.lat}&lng=${coordinates.lng}`;
+    this.sharedLinkInputEl.value = `${location.origin}/my-place?address=${encodeURI(address)}&lat=${coordinates.lat}&lng=${coordinates.lng}`;
   }
 
   locateUserHandler() {
