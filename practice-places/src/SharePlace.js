@@ -11,7 +11,7 @@ class PlaceFinder {
   }
 
   selectPlace(coordinates) {
-    if(this.map) {
+    if (this.map) {
       this.map.render(coordinatesc);
     } else {
       this.map = new Map(coordinates);
@@ -20,11 +20,16 @@ class PlaceFinder {
 
   locateUserHandler() {
     if (!navigator.geolocation) {
-      alert('Location feature not available in your browser - please use a mora modern browser or enter an address manually!');
+      alert(
+        'Location feature not available in your browser - please use a mora modern browser or enter an address manually!'
+      );
       return;
     }
 
-    const modal = new Modal('loading-modal-content', 'Loading location - please wait!');
+    const modal = new Modal(
+      'loading-modal-content',
+      'Loading location - please wait!'
+    );
     modal.show();
 
     navigator.geolocation.getCurrentPosition(
@@ -44,7 +49,21 @@ class PlaceFinder {
     );
   }
 
-  findAddressHandler() {}
+  findAddressHandler() {
+    event.preventDefault();
+    const address = event.target.querySelector('input').value;
+
+    if (!address || address.trim().length === 0) {
+      console.log('Please enter a valid address');
+    }
+
+    const modal = new Modal(
+      'loading-modal-content',
+      'Loading location - please wait!'
+    );
+
+    modal.show();
+  }
 }
 
 new PlaceFinder();
