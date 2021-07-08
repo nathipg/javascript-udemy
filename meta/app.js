@@ -103,3 +103,18 @@ Reflect.setPrototypeOf(course, {
 });
 
 console.log(course.toString());
+
+const courseHandler = {
+  get(obj, propertyName) {
+    if(propertyName === 'length') {
+      return 0;
+    }
+    return obj[propertyName] || 'NOT FOUND';
+  }
+};
+
+const pCourse = new Proxy(course, courseHandler);
+
+console.log(pCourse.title);
+console.log(pCourse.length);
+console.log(pCourse.rating);
