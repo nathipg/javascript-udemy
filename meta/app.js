@@ -110,11 +110,21 @@ const courseHandler = {
       return 0;
     }
     return obj[propertyName] || 'NOT FOUND';
+  },
+  set(obj, propertyName, newValue) {
+    if(propertyName === 'title') {
+      return;
+    }
+    obj[propertyName] = newValue;
   }
 };
 
 const pCourse = new Proxy(course, courseHandler);
 
-console.log(pCourse.title);
-console.log(pCourse.length);
-console.log(pCourse.rating);
+pCourse.title = 'Test';
+pCourse.rating = 5;
+
+console.log('Title', pCourse.title);
+console.log('Length', pCourse.length);
+console.log('Undefined property', pCourse.asdads);
+console.log('Rating', pCourse.rating);
