@@ -8,6 +8,7 @@ const user = {
   [uid]: 'p1',
   name: 'Pissuti',
   age: '24',
+  [Symbol.toStringTag]: 'User',
 };
 
 // App land -> Using the library
@@ -16,3 +17,5 @@ user.id = 'p2'; // This should not be possible
 console.log(user);
 console.log(user[Symbol('uid')]); // Undefined
 console.log(Symbol('uid') === Symbol('uid')); // false
+
+console.log(user.toString());
