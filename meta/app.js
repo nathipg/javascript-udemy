@@ -86,3 +86,7 @@ for(const employee of company) {
 }
 
 console.log([...company]);
+
+
+const persons = ['Apollo', 'Pissuti', 'Joana'];
+console.log(persons);
