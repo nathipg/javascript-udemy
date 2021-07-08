@@ -46,7 +46,7 @@ const company = {
     // }
 
     let currentEmployee = 0;
-    while(currentEmployee < this.employees.length) {
+    while (currentEmployee < this.employees.length) {
       yield this.employees[currentEmployee];
       currentEmployee++;
     }
@@ -60,7 +60,7 @@ const company = {
     // }
 
     let currentEmployee = 0;
-    while(currentEmployee < this.employees.length) {
+    while (currentEmployee < this.employees.length) {
       yield this.employees[currentEmployee];
       currentEmployee++;
     }
@@ -81,12 +81,25 @@ console.log(it.next());
 console.log(it.next());
 console.log(it.next());
 
-for(const employee of company) {
+for (const employee of company) {
   console.log(employee);
 }
 
 console.log([...company]);
 
-
 const persons = ['Apollo', 'Pissuti', 'Joana'];
 console.log(persons);
+
+// Reflect API
+
+const course = {
+  title: 'Javascript',
+};
+
+Reflect.setPrototypeOf(course, {
+  toString() {
+    return this.title;
+  },
+});
+
+console.log(course.toString());
