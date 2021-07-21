@@ -52,15 +52,13 @@ class PlaceFinder {
         return response.json();
       })
       .then(data => {
-        console.log(data);
+        const locId = data.locId;
+        this.shareBtn.disabled = false;
+        const sharedLinkInputElement = document.getElementById('share-link');
+        sharedLinkInputElement.value = `${
+          location.origin
+        }/my-place?location=${locId}`;
       });
-    this.shareBtn.disabled = false;
-    const sharedLinkInputElement = document.getElementById('share-link');
-    sharedLinkInputElement.value = `${
-      location.origin
-    }/my-place?address=${encodeURI(address)}&lat=${coordinates.lat}&lng=${
-      coordinates.lng
-    }`;
   }
 
   locateUserHandler() {
