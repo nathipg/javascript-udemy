@@ -1,35 +1,52 @@
 const express = require('express');
+const mongodb = require('mongodb');
+const MongoClient = mongodb.MongoClient;
 
 const router = express.Router();
 
-const locationStorage = {
-  locations: [],
-};
+const url =
+  'mongodb+srv://user:user@cluster0.gqup1.mongodb.net/locations?retryWrites=true&w=majority';
+
+const client = new MongoClient(url);
 
 router.post('/add-location', (req, res, next) => {
-  const id = Math.random();
-  locationStorage.locations.push({
-    id: id,
-    address: req.body.address,
-    coords: { lat: req.body.lat, lng: req.body.lng },
+  // const id = Math.random();
+  client.connect(function(err, client) {
+    const db = client.db('locations');
+
+    // Insert a single document
+    db.collection('user-locations').insertOne(
+      {
+        address: req.body.address,
+        coords: { lat: req.body.lat, lng: req.body.lng }
+      },
+      function(err, r) {
+        res.json({ message: 'Stored location!', locId: r.insertedId });
+      }
+    );
   });
-  res.json({ message: 'Stored location!', locId: id });
 });
 
 router.get('/location/:lid', (req, res, next) => {
-  const locationId = +req.params.lid;
-  const location = locationStorage.locations.find(loc => loc.id === locationId);
+  const locationId = req.params.lid;
 
-  if(!location) {
-    return res.status(404).json({
-      message: 'Not found!'
-    });
-  }
+  client.connect(function(err, client) {
+    const db = client.db('locations');
 
-  return res.json({
-    address: location.address,
-    coords: location.coords
-  })
+    // Insert a single document
+    db.collection('user-locations').findOne(
+      {
+        _id: new mongodb.ObjectId(locationId)
+      },
+      function(err, doc) {
+        // if (err) {}
+        if (!doc) {
+          return res.status(404).json({ message: 'Not found!' });
+        }
+        res.json({ address: doc.address, coordinates: doc.coords });
+      }
+    );
+  });
 });
 
 module.exports = router;
