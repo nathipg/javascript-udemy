@@ -42,7 +42,6 @@ router.get('/location/:lid', (req, res, next) => {
         if (!doc) {
           return res.status(404).json({ message: 'Not found!' });
         }
-        console.log(doc)
         res.json({ address: doc.address, coords: doc.coords });
       }
     );
