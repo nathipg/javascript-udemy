@@ -6,16 +6,26 @@ function add(a: number, b: number) {
   return a + b;
 }
 
-function printResult(result) {
-  console.log(result);
+type PrintMode = 'console' | 'alert';
+enum OutputMode {
+  CONSOLE,
+  ALERT,
+}
+
+function printResult(result: string | number, printMode: OutputMode) {
+  if (printMode === OutputMode.CONSOLE) {
+    console.log(result);
+  } else if (printMode === OutputMode.ALERT) {
+    alert(result);
+  }
 }
 
 const result = add(5, 3);
 const isDone = false;
 
-printResult(result);
+type CalculationResults = { res: number; print: () => void }[];
 
-let results: { res: number; print: () => void }[] = [];
+const results: CalculationResults = [];
 const names = ['Pissuti'];
 
 buttonElement.addEventListener('click', () => {
@@ -30,4 +40,5 @@ buttonElement.addEventListener('click', () => {
   };
   results.push(resultContainer);
   results[0].print();
+  printResult(result, OutputMode.CONSOLE);
 });
