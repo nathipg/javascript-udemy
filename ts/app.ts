@@ -65,7 +65,7 @@ interface CalculationContainer {
 
 type CalculationResults = CalculationContainer[];
 
-const results: CalculationResults = [];
+const results: Array<CalculationContainer> = [];
 const names = ['Pissuti'];
 
 buttonElement.addEventListener('click', () => {
@@ -82,3 +82,10 @@ buttonElement.addEventListener('click', () => {
   results[0].print();
   printResult(result, OutputMode.CONSOLE);
 });
+
+function logAndEcho<T>(val: T) {
+  console.log(val);
+  return val;
+}
+
+logAndEcho<string>('Hi there!').split(' ');
