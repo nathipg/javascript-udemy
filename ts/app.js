@@ -1,3 +1,4 @@
+"use strict";
 // class User {
 //   name: string;
 //   private age: number;
@@ -66,7 +67,7 @@ buttonElement.addEventListener('click', function () {
         res: result,
         print: function () {
             console.log(this.res);
-        }
+        },
     };
     results.push(resultContainer);
     results[0].print();
