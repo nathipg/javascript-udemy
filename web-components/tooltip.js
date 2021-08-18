@@ -5,6 +5,12 @@ class Tooltip extends HTMLElement {
     tooltipIcon.textContent = ' (?)';
     this.appendChild(tooltipIcon);
   }
+
+  connectedCallback() {}
+
+  disconnectedCallback() {}
+
+  attributeChangedCallback() {}
 }
 
 customElements.define('uc-tooltip', Tooltip);
