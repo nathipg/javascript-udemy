@@ -22,6 +22,10 @@ class Tooltip extends HTMLElement {
           z-index: 10;
         }
 
+        :host {
+          position: relative;
+        }
+
         :host(.important) {
           background: var(--color-primary, #ccc);
           padding: 0.15rem;
@@ -64,8 +68,6 @@ class Tooltip extends HTMLElement {
       'mouseleave',
       this._hideTooltip.bind(this)
     );
-
-    this.style.position = 'relative';
 
     this._render();
   }
