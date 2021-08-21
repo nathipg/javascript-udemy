@@ -16,7 +16,7 @@ class Tooltip extends HTMLElement {
           padding: 0.15rem;
           position: absolute;
           top: 1.5rem;
-          left: 0.75rem;
+          right: 0;
           z-index: 10;
         }
 
@@ -64,7 +64,13 @@ class Tooltip extends HTMLElement {
   disconnectedCallback() {}
 
   attributeChangedCallback(name, oldValue, newValue) {
-    console.log('attributeChangedCallback', name, oldValue, newValue);
+    if(oldValue === newValue) {
+      return;
+    }
+
+    if(name === 'text') {
+      this._tooltipText = newValue;
+    }
   }
 
   static get observedAttributes() {
