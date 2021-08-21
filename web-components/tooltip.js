@@ -63,7 +63,13 @@ class Tooltip extends HTMLElement {
 
   disconnectedCallback() {}
 
-  attributeChangedCallback() {}
+  attributeChangedCallback(name, oldValue, newValue) {
+    console.log('attributeChangedCallback', name, oldValue, newValue);
+  }
+
+  static get observedAttributes() {
+    return ['text'];
+  }
 
   _showTooltip() {
     this._tooltipContainer = document.createElement('div');
